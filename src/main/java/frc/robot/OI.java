@@ -1,6 +1,8 @@
 package frc.robot;
 
-import frc.util.PS4Gamepad;
+import edu.wpi.first.wpilibj.buttons.Button;
+import frc.controllers.PS4Gamepad;
+import frc.robot.commands.Shoot;
 
 public class OI {
 	//Calls the Gamepad Classes
@@ -18,14 +20,16 @@ public class OI {
 
 	public OI() {
 
-            //Button myButton = driverPad.getButtonState();
+			//Button myButton = driverPad.getButtonState();
 		//Driver Buttons
 
 		//Operator Buttons
+		Button operatorR1 = operatorPad.getR1();
 
             //myButton.whenPressed(new exCmd())
 		//Driver Controls		
 
 		//Operator Controls	
+		operatorR1.whileHeld(new Shoot());
 	}
 }

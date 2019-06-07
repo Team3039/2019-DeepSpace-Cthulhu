@@ -5,10 +5,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Intake;
 
 public class Robot extends TimedRobot {
   // public static ExampleSubsystem exSubsystm = new ExampleSubsystem();
   public static OI oi;
+  public static Drivetrain drivetrain = new Drivetrain();
+  public static Intake intake = new Intake();
 
   Command selectedCommand;
   SendableChooser<Command> autoChooser = new SendableChooser<>();

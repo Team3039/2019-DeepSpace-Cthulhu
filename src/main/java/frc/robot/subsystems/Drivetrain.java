@@ -13,10 +13,10 @@ import frc.robot.commands.TeleOpDrive;
  * Add your docs here.
  */
 public class Drivetrain extends Subsystem {
-  public TalonSRX leftFrontDrive = new TalonSRX(RobotMap.frontleftMotor);
-  public TalonSRX rightFrontDrive = new TalonSRX(RobotMap.frontrightMotor);
-  public TalonSRX leftRearDrive = new TalonSRX(RobotMap.rearleftMotor);
-  public TalonSRX rightRearDrive = new TalonSRX(RobotMap.rearrightMotor);
+  public TalonSRX leftFrontDrive = new TalonSRX(RobotMap.leftFrontDrive);
+  public TalonSRX rightFrontDrive = new TalonSRX(RobotMap.rightFrontDrive);
+  public TalonSRX leftRearDrive = new TalonSRX(RobotMap.leftRearDrive);
+  public TalonSRX rightRearDrive = new TalonSRX(RobotMap.rightRearDrive);
 
   public void joystickControl(PS4Gamepad gp) {
     //Tele-Op Driving
@@ -40,8 +40,6 @@ public class Drivetrain extends Subsystem {
     rightFrontDrive.set(ControlMode.PercentOutput, rightOutput);
     leftRearDrive.follow(leftFrontDrive);
     rightRearDrive.follow(rightFrontDrive);
-
-
   }
 
 
@@ -53,6 +51,5 @@ public class Drivetrain extends Subsystem {
   @Override
   public void initDefaultCommand() {
     setDefaultCommand(new TeleOpDrive());
-    
   }
 }
