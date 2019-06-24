@@ -6,6 +6,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.controllers.PS4Gamepad;
+import frc.robot.Constants;
 import frc.robot.RobotMap;
 import frc.robot.commands.TeleOpDrive;
 
@@ -21,8 +22,8 @@ public class Drivetrain extends Subsystem {
   public void joystickControl(PS4Gamepad gp) {
     //Tele-Op Driving
     //Each Motor is Set to Brake Mode, the motor speeds are set in an Arcade Drive fashion
-    double y = gp.getLeftYAxis()*-.9;
-    double rot = gp.getRightXAxis()*.8;
+    double y = -gp.getLeftYAxis()* Constants.yGain;
+    double rot = gp.getRightXAxis()* Constants.rotGain;
 
     //Calculated Outputs (Limits Output to 12V)
     double leftOutput = y + rot;

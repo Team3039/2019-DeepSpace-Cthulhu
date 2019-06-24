@@ -15,7 +15,8 @@ public class RobotMap {
     public static final int leftIntake = 4;
     public static final int rightIntake = 5;
     
-    public static final int arm = 6;
+    public static final int armMaster = 6;
+    public static final int armSlave = 7;
     
 //Solenoid
     public static final int expander = 0;

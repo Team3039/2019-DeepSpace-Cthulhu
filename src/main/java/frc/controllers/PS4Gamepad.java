@@ -1,4 +1,4 @@
-package frc.util;
+package frc.controllers;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
