@@ -2,6 +2,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import frc.controllers.PS4Gamepad;
+import frc.robot.commands.SetArmPosition;
 import frc.robot.commands.Shoot;
 
 public class OI {
@@ -25,11 +26,14 @@ public class OI {
 
 		//Operator Buttons
 		Button operatorR1 = operatorPad.getR1();
+		Button operatorX = operatorPad.getButtonX();
 
             //myButton.whenPressed(new exCmd())
 		//Driver Controls		
 
 		//Operator Controls	
 		operatorR1.whileHeld(new Shoot());
+		operatorX.whenPressed(new SetArmPosition(0));
+
 	}
 }
