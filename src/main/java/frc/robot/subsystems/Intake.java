@@ -1,16 +1,16 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 public class Intake extends Subsystem {
 
-  public TalonSRX leftIntake = new TalonSRX(RobotMap.leftIntake);
-  public TalonSRX rightIntake = new TalonSRX(RobotMap.rightIntake);
+  public Talon leftIntake = new Talon(RobotMap.leftIntake);
+  public Talon rightIntake = new Talon(RobotMap.rightIntake);
   public Solenoid expander = new Solenoid(RobotMap.expander);
   
   public void openIntake() {
@@ -22,18 +22,17 @@ public class Intake extends Subsystem {
   }
 
   public void get() {
-    leftIntake.set(ControlMode.PercentOutput,.8);
-    rightIntake.set(ControlMode.PercentOutput,-.8);
+    leftIntake.set(.8);
+    rightIntake.set(-.8);
   }
-
   public void expel() {
-    leftIntake.set(ControlMode.PercentOutput,-.8);
-    rightIntake.set(ControlMode.PercentOutput,.8);
+    leftIntake.set(-.8);
+    rightIntake.set(.8);
   }
 
   public void stopIntake() {
-    leftIntake.set(ControlMode.PercentOutput, 0);
-    rightIntake.set(ControlMode.PercentOutput, 0);
+    leftIntake.set( 0);
+    rightIntake.set( 0);
   }
   
   @Override
