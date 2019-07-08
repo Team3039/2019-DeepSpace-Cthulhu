@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.controllers.PS4Gamepad;
@@ -14,10 +15,10 @@ import frc.robot.commands.TeleOpDrive;
  * Add your docs here.
  */
 public class Drivetrain extends Subsystem {
-  public TalonSRX leftFrontDrive = new TalonSRX(RobotMap.leftFrontDrive);
-  public TalonSRX rightFrontDrive = new TalonSRX(RobotMap.rightFrontDrive);
-  public TalonSRX leftRearDrive = new TalonSRX(RobotMap.leftRearDrive);
-  public TalonSRX rightRearDrive = new TalonSRX(RobotMap.rightRearDrive);
+  public VictorSPX leftFrontDrive = new VictorSPX(RobotMap.leftFrontDrive);
+  public VictorSPX rightFrontDrive = new VictorSPX(RobotMap.rightFrontDrive);
+  public VictorSPX leftRearDrive = new VictorSPX (RobotMap.leftRearDrive);
+  public VictorSPX rightRearDrive = new VictorSPX(RobotMap.rightRearDrive);
 
   public void joystickControl(PS4Gamepad gp) {
     //Tele-Op Driving
