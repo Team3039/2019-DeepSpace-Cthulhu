@@ -1,9 +1,6 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.controllers.PS4Gamepad;
 import frc.robot.Constants;
@@ -14,10 +11,10 @@ import frc.robot.commands.TeleOpDrive;
  * Add your docs here.
  */
 public class Drivetrain extends Subsystem {
-  public VictorSPX leftFrontDrive = new VictorSPX(RobotMap.leftFrontDrive);
-  public VictorSPX rightFrontDrive = new VictorSPX(RobotMap.rightFrontDrive);
-  public VictorSPX leftRearDrive = new VictorSPX (RobotMap.leftRearDrive);
-  public VictorSPX rightRearDrive = new VictorSPX(RobotMap.rightRearDrive);
+  public Talon leftFrontDrive = new Talon(RobotMap.leftFrontDrive);
+  public Talon rightFrontDrive = new Talon(RobotMap.rightFrontDrive);
+  public Talon leftRearDrive = new Talon (RobotMap.leftRearDrive);
+  public Talon rightRearDrive = new Talon(RobotMap.rightRearDrive);
 
   public void joystickControl(PS4Gamepad gp) {
     //Tele-Op Driving
@@ -29,24 +26,17 @@ public class Drivetrain extends Subsystem {
     double leftOutput = y + rot;
     double rightOutput = rot - y;
 
-
-    //Set Motor's Neutral/Idle Mode to Brake
-    leftFrontDrive.setNeutralMode(NeutralMode.Brake);
-    rightFrontDrive.setNeutralMode(NeutralMode.Brake);
-    leftRearDrive.setNeutralMode(NeutralMode.Brake);
-    rightRearDrive.setNeutralMode(NeutralMode.Brake); 
-
     //Assigns Each Motor's Power
-    leftFrontDrive.set(ControlMode.PercentOutput, leftOutput);
-    rightFrontDrive.set(ControlMode.PercentOutput, rightOutput);
-    leftRearDrive.follow(leftFrontDrive);
-    rightRearDrive.follow(rightFrontDrive);
+    leftFrontDrive.set(leftOutput);
+    rightFrontDrive.set(rightOutput);
+    leftRearDrive.set(leftOutput);
+    rightRearDrive.set(rightOutput);
   }
 
 
   public void stopDrive()  {
-    leftFrontDrive.set(ControlMode.PercentOutput, 0);
-    rightFrontDrive.set(ControlMode.PercentOutput, 0);
+    leftFrontDrive.set(0);
+    rightFrontDrive.set(0);
   }
   
   @Override

@@ -15,8 +15,7 @@ public class GetHatch extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.closeIntake();
-    Robot.intake.get();
+    Robot.intake.grabHatch();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -28,13 +27,13 @@ public class GetHatch extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intake.stopIntake();
+    Robot.intake.openHatch();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.intake.stopIntake();
+    Robot.intake.openHatch();
   }
 }
