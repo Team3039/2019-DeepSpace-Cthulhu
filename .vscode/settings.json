@@ -1,13 +1,13 @@
 {
   "vscode_custom_css.policy": true,
   "vscode_custom_css.imports": [
-    "file:///C:/workspace/2019-DeepSpace-Cthulhu/.vscode/WildcatRobotics.css" 
+    "file:///C:/Users/WildcatRobotics/vscode-workspace/2019-DeepSpace-Cthulhu/.vscode/WildcatRobotics.css" 
 ],
 "workbench.colorCustomizations": {
     "statusBar.background" : "#ff000050",
     "statusBar.noFolderBackground" : "#ff000050",
     "statusBar.debuggingBackground": "#ff000050"
-},
+}
   "java.configuration.updateBuildConfiguration": "automatic",
   "files.exclude": {
     "**/.git": false,

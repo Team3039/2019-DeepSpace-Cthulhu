@@ -10,10 +10,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class ArmOverride extends Command {
-  public ArmOverride() {
+public class DriveArm extends Command {
+  public DriveArm() {
     // Use requires() here to declare subsystem dependencies
-    requires (Robot.arm);
+    requires(Robot.arm);
   }
 
   // Called just before this Command runs the first time
@@ -24,7 +24,20 @@ public class ArmOverride extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.manualControl(Robot.oi.getCopad());
+    if (Math.abs(Robot.oi.getCopad().getRightYAxis()) > .2) {
+      //Deadband check(checks for Manual mode)
+      Robot.arm.isClosedLoopControl=false;
+      Robot.arm.targetSetPoint= Robot.arm.getPosition();
+    }
+
+    if (Robot.arm.isClosedLoopControl){
+      Robot.arm.closedLoopMode();
+    }
+    else {
+      Robot.arm.manualControl(Robot.oi.getCopad());
+      Robot.arm.targetSetPoint= Robot.arm.getPosition();
+    }
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -36,13 +49,12 @@ public class ArmOverride extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.arm.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.arm.stop();
+    
   }
 }
