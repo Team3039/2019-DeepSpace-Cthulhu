@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.controllers.PS4Gamepad;
 import frc.robot.Constants;
 import frc.robot.RobotMap;
-import frc.robot.commands.ArmOverride;
+import frc.robot.commands.DriveArm;
 
 public class Arm extends Subsystem {
 
@@ -21,6 +21,7 @@ public class Arm extends Subsystem {
   public CANEncoder encoder = armMaster.getEncoder();
 
   public boolean isClosedLoopControl = false;
+  public double targetSetPoint = 0.0;
 
   public void manualControl (PS4Gamepad gp) {
     double output = gp.getRightYAxis() * Constants.armGain;
@@ -34,8 +35,8 @@ public class Arm extends Subsystem {
     armSlave.follow(armMaster);
   }
 
-  public void setArm(double setpoint) {
-    pidctrl.setReference(setpoint, ControlType.kPosition);
+  public void closedLoopMode() {
+    pidctrl.setReference( targetSetPoint, ControlType.kPosition);
 
     pidctrl.setP(Constants.armP);
     pidctrl.setI(Constants.armI);
@@ -44,10 +45,18 @@ public class Arm extends Subsystem {
     armSlave.follow(armMaster);
   }
 
+  public double getPosition() {
+    return encoder.getPosition();
+  }
+
+  public double getVelocity() {
+    return encoder.getVelocity();
+  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new ArmOverride());
+    setDefaultCommand(new DriveArm());
     
   }
 }
