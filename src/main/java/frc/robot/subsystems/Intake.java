@@ -11,19 +11,20 @@ public class Intake extends Subsystem {
   public Talon rightIntake = new Talon(RobotMap.rightIntake);
   public Solenoid expander = new Solenoid(RobotMap.expander);
   
-  public void openIntake() {
-    expander.set(true);
-  }
-
-  public void closeIntake() {
+  public void openHatch() {
     expander.set(false);
   }
 
-  public void get() {
+  public void grabHatch() {
+    expander.set(true);
+  }
+
+  public void getCargo() {
     leftIntake.set(.8);
     rightIntake.set(-.8);
   }
-  public void expel() {
+  
+  public void shootCargo() {
     leftIntake.set(-.8);
     rightIntake.set(.8);
   }
