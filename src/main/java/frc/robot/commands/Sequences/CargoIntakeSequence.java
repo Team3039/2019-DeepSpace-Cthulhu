@@ -8,12 +8,15 @@
 package frc.robot.commands.Sequences;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.Constants;
+import frc.robot.commands.GetCargo;
+import frc.robot.commands.SetArmPosition;
 
 public class CargoIntakeSequence extends CommandGroup {
-  /**
-   * Add your docs here.
-   */
+
   public CargoIntakeSequence() {
+    addSequential(new SetArmPosition(Constants.cargoIntakeLevel), .5);
+    addSequential(new GetCargo());
     
   }
 }
