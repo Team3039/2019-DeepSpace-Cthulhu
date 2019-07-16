@@ -3,8 +3,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class GetHatch extends Command {
-  public GetHatch() {
+public class TriggerHatch extends Command {
+  public TriggerHatch() {
   }
 
   // Called just before this Command runs the first time
