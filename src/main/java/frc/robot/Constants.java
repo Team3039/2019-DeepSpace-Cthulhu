@@ -9,7 +9,7 @@ public class Constants {
     public static final double armI = 0;
     public static final double armD = 0;
 
-    public static final double ballIntakeLevel = 0;
+    public static final double cargoIntakeLevel = 0;
     public static final double hatchIntakeLevel = 0;
     public static final double cargoScoringLevel = 0;
 }
