@@ -6,6 +6,7 @@ import frc.robot.commands.GetCargo;
 import frc.robot.commands.SetArmPosition;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.TriggerHatch;
+import frc.robot.commands.Sequences.CargoIntakeSequence;
 
 public class OI {
 	//Calls the Gamepad Classes
@@ -31,6 +32,7 @@ public class OI {
 		Button operatorX = operatorPad.getButtonX();
 		Button operatorCircle = operatorPad.getButtonCircle();
 		Button operatorSquare = operatorPad.getButtonSquare();
+		Button operatorL1 = operatorPad.getL1();
 		
 
 
@@ -41,8 +43,10 @@ public class OI {
 		//Operator Controls	
 		operatorR1.whileHeld(new Shoot());
 		operatorX.whenPressed(new SetArmPosition(0));
-		operatorCircle.whileHeld(new GetCargo());
+		operatorCircle.whenPressed(new CargoIntakeSequence());
 		operatorSquare.toggleWhenPressed(new TriggerHatch());
+		operatorL1.whileHeld(new GetCargo());
+		
 		
 
 

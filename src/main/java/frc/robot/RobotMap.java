@@ -20,4 +20,7 @@ public class RobotMap {
     
 //Solenoid
     public static final int expander = 0;
+
+//DIO
+    public static final int cargoSwitch = 0;
 }

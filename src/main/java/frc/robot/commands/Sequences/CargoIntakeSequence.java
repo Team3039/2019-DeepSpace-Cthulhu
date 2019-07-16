@@ -17,6 +17,7 @@ public class CargoIntakeSequence extends CommandGroup {
   public CargoIntakeSequence() {
     addSequential(new SetArmPosition(Constants.cargoIntakeLevel), .5);
     addSequential(new GetCargo());
-    
+    //The Limit switch is going to signal when the cargo is secured
+    addSequential(new SetArmPosition(Constants.cargoScoringLevel));
   }
 }
