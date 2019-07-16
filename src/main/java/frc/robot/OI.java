@@ -31,7 +31,7 @@ public class OI {
 		Button operatorX = operatorPad.getButtonX();
 		Button operatorCircle = operatorPad.getButtonCircle();
 		Button operatorSquare = operatorPad.getButtonSquare();
-		Button operatorL1 = operatorPad.getL1();
+		
 
 
 
@@ -43,7 +43,7 @@ public class OI {
 		operatorX.whenPressed(new SetArmPosition(0));
 		operatorCircle.whileHeld(new GetCargo());
 		operatorSquare.toggleWhenPressed(new TriggerHatch());
-		operatorL1.
+		
 
 
 	}
