@@ -7,16 +7,15 @@ public class RobotMap {
     public static final int operator = 1;
 
 //CAN
-    public static final int leftFrontDrive = 0;
-    public static final int rightFrontDrive = 1;
-    public static final int leftRearDrive = 2;
-    public static final int rightRearDrive = 3;
+    public static final int leftFrontDrive = 1;
+    public static final int rightFrontDrive = 2;
+    public static final int leftRearDrive = 3;
+    public static final int rightRearDrive = 4;
 
-    public static final int leftIntake = 4;
-    public static final int rightIntake = 5;
+    public static final int leftIntake = 0;
     
-    public static final int armMaster = 6;
-    public static final int armSlave = 7;
+    public static final int armMaster = 0;
+    public static final int armSlave = 1;
     
 //Solenoid
     public static final int expander = 0;

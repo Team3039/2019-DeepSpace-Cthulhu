@@ -8,8 +8,7 @@ import frc.robot.RobotMap;
 
 public class Intake extends Subsystem {
 
-  public Talon leftIntake = new Talon(RobotMap.leftIntake);
-  public Talon rightIntake = new Talon(RobotMap.rightIntake);
+  public Talon intake = new Talon(RobotMap.leftIntake);
   public Solenoid expander = new Solenoid(RobotMap.expander);
   public DigitalInput cargoSwitch = new DigitalInput(RobotMap.cargoSwitch);
   
@@ -22,18 +21,15 @@ public class Intake extends Subsystem {
   }
 
   public void getCargo() {
-    leftIntake.set(.8);
-    rightIntake.set(-.8);
+    intake.set(.8);
   }
   
   public void shootCargo() {
-    leftIntake.set(-.8);
-    rightIntake.set(.8);
+    intake.set(-.8);
   }
 
   public void stopIntake() {
-    leftIntake.set( 0);
-    rightIntake.set( 0);
+    intake.set( 0);
   }
   
   public boolean getCargoStatus() {
