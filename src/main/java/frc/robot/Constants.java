@@ -5,7 +5,7 @@ public class Constants {
     public static final double yGain = .9;
     public static final double rotGain = .4;
 
-    public static final double armGain = .8;
+    public static final double armGain = .6;
     public static final double armP = 0;
     public static final double armI = 0;
     public static final double armD = 0;

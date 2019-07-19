@@ -12,6 +12,8 @@ public class Intake extends Subsystem {
   public Solenoid expander = new Solenoid(RobotMap.expander);
   public DigitalInput cargoSwitch = new DigitalInput(RobotMap.cargoSwitch);
   
+  public boolean hasCargo = false;
+
   public void openHatch() {
     expander.set(false);
   }
@@ -36,6 +38,10 @@ public class Intake extends Subsystem {
     return cargoSwitch.get();
   }
 
+  public void setCargoState(boolean state) {
+    hasCargo = state;
+  }
+  
   @Override
   public void initDefaultCommand() {
   }

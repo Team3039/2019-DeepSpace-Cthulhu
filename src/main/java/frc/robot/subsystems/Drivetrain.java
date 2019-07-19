@@ -19,7 +19,7 @@ public class Drivetrain extends Subsystem {
   public void joystickControl(PS4Gamepad gp) {
     //Tele-Op Driving
     //Each Motor is Set to Brake Mode, the motor speeds are set in an Arcade Drive fashion
-    double y = -gp.getLeftYAxis()* Constants.yGain;
+    double y = gp.getLeftYAxis()* Constants.yGain;
     double rot = gp.getRightXAxis()* Constants.rotGain;
 
     //Calculated Outputs (Limits Output to 12V)
