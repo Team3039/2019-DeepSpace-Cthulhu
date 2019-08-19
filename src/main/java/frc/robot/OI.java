@@ -2,6 +2,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import frc.controllers.PS4Gamepad;
+import frc.robot.commands.CargoTrigger;
 import frc.robot.commands.GetCargo;
 import frc.robot.commands.SetArmPosition;
 import frc.robot.commands.Shoot;
@@ -32,6 +33,7 @@ public class OI {
 		Button operatorX = operatorPad.getButtonX();
 		Button operatorCircle = operatorPad.getButtonCircle();
 		Button operatorSquare = operatorPad.getButtonSquare();
+		Button operatorTriangle = operatorPad.getButtonTriangle();
 		Button operatorL1 = operatorPad.getL1();
 		Button operatorAxis 
 
@@ -46,8 +48,12 @@ public class OI {
 		operatorCircle.whenPressed(new CargoIntakeSequence());
 		operatorSquare.toggleWhenPressed(new TriggerHatch());
 		operatorL1.whileHeld(new GetCargo());
+<<<<<<< HEAD
 
 	
+=======
+		operatorTriangle.whileHeld(new CargoTrigger());
+>>>>>>> 228142dfe4dbe780dd7b9bdb6d39d5eed4a8633d
 		
 		
 
