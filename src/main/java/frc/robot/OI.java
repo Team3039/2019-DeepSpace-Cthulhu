@@ -18,17 +18,17 @@ public class OI {
 	public PS4Gamepad getGamepad() {
 		return driverPad;
 	}
-	
+ 	
 	public PS4Gamepad getCopad() {
 		return operatorPad;
 	}
 
 	public OI() {
 
-			//Button myButton = driverPad.getButtonState();
-		//Driver Buttons
+			Button myButton = driverPad.getButtonState();
+			//Driver Buttons
 
-		//Operator Button
+			//Operator Button
 		Button operatorR1 = operatorPad.getR1();
 		Button operatorX = operatorPad.getButtonX();
 		Button operatorCircle = operatorPad.getButtonCircle();
@@ -39,7 +39,7 @@ public class OI {
 
 
 
-            //myButton.whenPressed(new exCmd())
+        myButton.whenPressed(new exCmd())
 		//Driver Controls		
 
 		//Operator Controls	
