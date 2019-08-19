@@ -33,7 +33,7 @@ public class OI {
 		Button operatorCircle = operatorPad.getButtonCircle();
 		Button operatorSquare = operatorPad.getButtonSquare();
 		Button operatorL1 = operatorPad.getL1();
-		
+		Button operatorAxis 
 
 
 
@@ -46,6 +46,8 @@ public class OI {
 		operatorCircle.whenPressed(new CargoIntakeSequence());
 		operatorSquare.toggleWhenPressed(new TriggerHatch());
 		operatorL1.whileHeld(new GetCargo());
+
+	
 		
 		
 
