@@ -14,11 +14,11 @@ public class RobotMap {
 
     public static final int leftIntake = 0;
     
-    public static final int armMaster = 0;
-    public static final int armSlave = 1;
+    public static final int armMaster = 1;
+    public static final int armSlave = 2;
     
 //Solenoid
-    public static final int expander = 0;
+    public static final int expander = 4;
 
 //DIO
     public static final int cargoSwitch = 0;

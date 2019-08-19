@@ -1,5 +1,8 @@
 package frc.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.VideoMode;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -25,10 +28,15 @@ public class Robot extends TimedRobot {
     // autoChooser.setDefaultOption("Default Auto", new exCmd());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", autoChooser);
+
+    UsbCamera usbCamera = CameraServer.getInstance().startAutomaticCapture();
+    usbCamera.setVideoMode(VideoMode.PixelFormat.kYUYV, 320, 180, 60);
+    
   }
 
   @Override
   public void robotPeriodic() {
+    System.out.println(arm.getPosition());
   }
 
   @Override
