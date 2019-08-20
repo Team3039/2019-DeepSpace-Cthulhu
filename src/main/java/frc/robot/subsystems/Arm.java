@@ -27,24 +27,23 @@ public class Arm extends Subsystem {
 
   public void manualControl (PS4Gamepad gp) {
     double output = gp.getRightYAxis() * Constants.armGain;
-    armMaster.set(output);
-    armSlave.follow(armMaster);
+    armMaster.set(true);
+    armSlave.set(true);
     isClosedLoopControl = false;
   }
 
   public void stop() {
-    armMaster.set(0);
-    armSlave.follow(armMaster);
+    armMaster.set(false);
+    armSlave.set(false);
   }
 
-  public void closedLoopMode() {
+  /*public void closedLoopMode() {
     pidctrl.setReference( targetSetPoint, ControlType.kPosition);
 
     pidctrl.setP(Constants.armP);
     pidctrl.setI(Constants.armI);
     pidctrl.setD(Constants.armD);
 
-    armSlave.follow(armMaster);
   }
 
   public double getPosition() {
@@ -53,7 +52,7 @@ public class Arm extends Subsystem {
 
   public double getVelocity() {
     return encoder.getVelocity();
-  }
+  }*/
 
   @Override
   public void initDefaultCommand() {

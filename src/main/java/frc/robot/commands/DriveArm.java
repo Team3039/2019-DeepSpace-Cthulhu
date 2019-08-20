@@ -27,15 +27,15 @@ public class DriveArm extends Command {
     if (Math.abs(Robot.oi.getCopad().getRightYAxis()) > .2) {
       //Deadband check(checks for Manual mode)
       Robot.arm.isClosedLoopControl=false;
-      Robot.arm.targetSetPoint= Robot.arm.getPosition();
+     // Robot.arm.targetSetPoint= Robot.arm.getPosition();
     }
 
     if (Robot.arm.isClosedLoopControl){
-      Robot.arm.closedLoopMode();
+      //Robot.arm.closedLoopMode();
     }
     else {
       Robot.arm.manualControl(Robot.oi.getCopad());
-      Robot.arm.targetSetPoint= Robot.arm.getPosition();
+      //Robot.arm.targetSetPoint= Robot.arm.getPosition();
     }
 
   }
