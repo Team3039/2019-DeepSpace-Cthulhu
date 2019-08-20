@@ -6,19 +6,21 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.ControlType;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.controllers.PS4Gamepad;
 import frc.robot.Constants;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveArm;
 
+
 public class Arm extends Subsystem {
 
-  public CANSparkMax armMaster = new CANSparkMax(RobotMap.armMaster, MotorType.kBrushless);
-  public CANSparkMax armSlave = new CANSparkMax(RobotMap.armSlave, MotorType.kBrushless);
+  public Solenoid armMaster = new Solenoid (RobotMap.armMaster);
+  public Solenoid armSlave = new Solenoid (RobotMap.armSlave);
   
-  public CANPIDController pidctrl = armMaster.getPIDController();
-  public CANEncoder encoder = armMaster.getEncoder();
+  /*public CANPIDController pidctrl = armMaster.getPIDController();
+  public CANEncoder encoder = armMaster.getEncoder();*/
 
   public boolean isClosedLoopControl = false;
   public double targetSetPoint = 0.0;
