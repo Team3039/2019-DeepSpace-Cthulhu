@@ -2,12 +2,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import frc.controllers.PS4Gamepad;
-import frc.robot.commands.CargoTrigger;
+import frc.robot.commands.ActuateArm;
 import frc.robot.commands.GetCargo;
-import frc.robot.commands.SetArmPosition;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.TriggerHatch;
-import frc.robot.commands.Sequences.CargoIntakeSequence;
 
 public class OI {
 	//Calls the Gamepad Classes
@@ -29,12 +27,10 @@ public class OI {
 			//Driver Buttons
 
 			//Operator Button
-		Button operatorR1 = operatorPad.getR1();
-		Button operatorX = operatorPad.getButtonX();
-		Button operatorCircle = operatorPad.getButtonCircle();
-		Button operatorSquare = operatorPad.getButtonSquare();
-		Button operatorTriangle = operatorPad.getButtonTriangle();
+		Button operatorR2 = operatorPad.getR1();
+		Button operatorTriangle = operatorPad.getButtonSquare();
 		Button operatorL1 = operatorPad.getL1();
+		Button operatorL2 = operatorPad.getL2();
 		
 
 
@@ -43,15 +39,12 @@ public class OI {
 		//Driver Controls		
 
 		//Operator Controls	
-		operatorR1.whileHeld(new Shoot());
-		operatorX.whenPressed(new SetArmPosition(0));
-		operatorCircle.whenPressed(new CargoIntakeSequence());
-		operatorSquare.toggleWhenPressed(new TriggerHatch());
-		operatorL1.whileHeld(new GetCargo());
-		operatorTriangle.whileHeld(new CargoTrigger());
-		
+		operatorL1.whileHeld(new Shoot());
+		operatorL2.whileHeld(new GetCargo());
+		operatorR2.toggleWhenPressed(new TriggerHatch());
+	    operatorTriangle.toggleWhenPressed(new ActuateArm());
 		
 
 
 	}
-}
+} 

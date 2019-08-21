@@ -8,12 +8,9 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot;
 
-public class SetArmPosition extends Command {
-  double setpoint;
-  public SetArmPosition(double setpoint) {
-    this.setpoint = setpoint;
+public class ActuateArm extends Command {
+  public ActuateArm() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -26,8 +23,6 @@ public class SetArmPosition extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.targetSetPoint=setpoint;
-    Robot.arm.isClosedLoopControl=true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,13 +34,11 @@ public class SetArmPosition extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.arm.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.arm.stop();
   }
 }
