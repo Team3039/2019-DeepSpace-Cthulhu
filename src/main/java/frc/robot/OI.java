@@ -25,18 +25,24 @@ public class OI {
 
 			//Button myButton = driverPad.getButtonState();
 			//Driver Buttons
+		Button driverR1 = driverPad.getR1();
 
 			//Operator Button
-		Button operatorR2 = operatorPad.getR1();
+		Button operatorR2 = operatorPad.getR2();
 		Button operatorTriangle = operatorPad.getButtonSquare();
 		Button operatorL1 = operatorPad.getL1();
 		Button operatorL2 = operatorPad.getL2();
 		
 
-
-
+		// ([])
+		// ([(]))
+		
+		//([(
+			
        // myButton.whenPressed(new exCmd())
 		//Driver Controls		
+		driverR1.toggleWhenPressed(new TriggerHatch());
+	
 
 		//Operator Controls	
 		operatorL1.whileHeld(new Shoot());

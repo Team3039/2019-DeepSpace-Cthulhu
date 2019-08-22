@@ -18,7 +18,9 @@ public class Arm extends Subsystem {
   public void raiseArm() {
     arm.set(true);
   }
-  
+  public void lowerArm() {
+    arm.set(false);
+  }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.    
